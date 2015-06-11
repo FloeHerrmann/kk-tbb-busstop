@@ -5,7 +5,7 @@
 
 //#define SERIAL_OUTPUT
 #define USE_GSM
-//#define SEND_MSGS
+#define SEND_MSGS
 
 // GSM Modem
 #define GSM_TX 7
@@ -22,13 +22,13 @@
 // Kommandos
 #define RCV_STOP_COMMAND "STOP_TBB"
 #define RCV_RESET_COMMAND "RESET_TBB"
-#define ANS_OK_COMMAND "TBB_OK"
+#define ANS_OK_COMMAND "TBB_STOP"
 #define ANS_ERROR_COMMAND "TBB_ERROR"
 #define ANS_RESET_COMMAND "TBB_RESET"
 
 
 // Nummer der Basisstation
-#define BASESTATION_NUMBER "+491624220560"
+#define BASESTATION_NUMBER "+4915755662558"
 
 // Pin für den Reset-Button
 #define BUTTON 10
@@ -109,9 +109,9 @@ void loop() {
 			if( messageS.equals( RCV_STOP_COMMAND ) ) {
 				if( receivedStopCommand == false ) {
 					SwitchStopSign( true );
-					SendShortMessage( 0 );
 					receivedStopCommand = true;
 				}
+				SendShortMessage( 0 );
 			}
 
 			modem.deleteSMS( messageIndex );
