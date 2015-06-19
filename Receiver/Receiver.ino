@@ -18,6 +18,9 @@
 #define LED_STATE_BLUE 3
 #define LED_STOP_1 4
 #define LED_STOP_2 5
+#define LED_STOP_3 11
+#define LED_STOP_4 12
+#define LED_STOP_5 13
 
 // Kommandos
 #define RCV_STOP_COMMAND "STOP_TBB"
@@ -59,6 +62,10 @@ void setup() {
 	pinMode( LED_STATE_BLUE , OUTPUT );
 	pinMode( LED_STOP_1 , OUTPUT );
 	pinMode( LED_STOP_2 , OUTPUT );
+	pinMode( LED_STOP_3 , OUTPUT );
+	pinMode( LED_STOP_4 , OUTPUT );
+	pinMode( LED_STOP_5 , OUTPUT );
+
 	// Reset Button
 	pinMode( BUTTON , INPUT_PULLUP );
 
@@ -67,6 +74,9 @@ void setup() {
 	digitalWrite( LED_STATE_BLUE , HIGH );
 	digitalWrite( LED_STOP_1 , HIGH );
 	digitalWrite( LED_STOP_2 , HIGH );
+	digitalWrite( LED_STOP_3 , HIGH );
+	digitalWrite( LED_STOP_4 , HIGH );
+	digitalWrite( LED_STOP_5 , HIGH );
 
 	StartUpSignal();
 
@@ -198,10 +208,16 @@ void SwitchStopSign( bool state ){
 		LED( 0 , LED_STATE_GREEN , LED_STATE_BLUE , false , true , false );
 		LED( 0 , LED_STOP_1 , 0 , false , true , false );
 		LED( 0 , LED_STOP_2 , 0 , false , true , false );
+		LED( 0 , LED_STOP_3 , 0 , false , true , false );
+		LED( 0 , LED_STOP_4 , 0 , false , true , false );
+		LED( 0 , LED_STOP_5 , 0 , false , true , false );
 	} else if( state == false ) {
 		LED( 0 , LED_STATE_GREEN , LED_STATE_BLUE , false , false , false );
 		LED( 0 , LED_STOP_1 , 0 , false , false , false );
 		LED( 0 , LED_STOP_2 , 0 , false , false , false );
+		LED( 0 , LED_STOP_3 , 0 , false , false , false );
+		LED( 0 , LED_STOP_4 , 0 , false , false , false );
+		LED( 0 , LED_STOP_5 , 0 , false , false , false );
 	}
 }
 
